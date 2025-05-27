@@ -11,7 +11,6 @@ C = 12820163
 M = 2124325123
 
 type = RandomType.DEFINED
-random_numbers = []
 amount_random_numbers_seed = 0
 generate_number = 0
 
@@ -35,6 +34,6 @@ def initial_configuration(config):
         generate_number = generator.generate()
 
 if __name__ == "__main__":
-    config = load_yml('model.yml')
+    config = load_yml('example.yml')
     initial_configuration(config)
     main(config)
