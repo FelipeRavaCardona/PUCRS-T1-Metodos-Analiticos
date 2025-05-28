@@ -137,6 +137,7 @@ def generate_report(queue):
     print(tabulate(rows, headers=['State', 'Time', 'Probability'], tablefmt='orgtbl'))
     print(f"\nNumber of losses: {queue.losses}")
     print('=' * 50 + '\n')
+    
 
 if __name__ == "__main__":
     config = load_config('model.yml')
@@ -154,4 +155,4 @@ if __name__ == "__main__":
         queue_data.routes = sorted(queue_data.routes, key=lambda obj: obj.probability) 
     print(f"Simulating with random numbers generated with seed {config['seeds'][0]}")
     simulate(config)
-    
+    print(f"Simulation average time: {global_time}")
