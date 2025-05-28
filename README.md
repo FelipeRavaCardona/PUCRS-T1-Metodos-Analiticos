@@ -4,7 +4,7 @@
 
 O programa consegue executar apenas com random numbers baseados em seed e apenas com uma única seed
 
-O programa consegue executar apenas filas que tenham network
+O programa consegue executar apenas sistemas que tenham ao menos 1 network, ou seja, ao menos um roteamento entre filas
 
 ## Execução do Programa
 
