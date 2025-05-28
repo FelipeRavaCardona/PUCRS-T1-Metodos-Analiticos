@@ -162,8 +162,6 @@ if __name__ == "__main__":
         if summed_probability != 1.0:
             queue_data.routes.append(Route(source=queue_name, target='OUT', probability=round(1.0 - summed_probability, 1)))
 
-    print(config['queues'])
-
     print(f"Simulating with random numbers generated with seed {config['seeds'][0]}")
     simulate(config)
     print(f"Simulation average time: {global_time}")

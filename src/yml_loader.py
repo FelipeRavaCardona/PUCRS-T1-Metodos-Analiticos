@@ -64,11 +64,11 @@ def load_config(file_path):
         )
 
     # Setup network
-    if 'network' not in data:
-        print("No network defined in the configuration.")
-        exit()
+    # if 'network' not in data:
+    #     print("No network defined in the configuration.")
+    #     exit()
     config['network'] = []
-    for route in data['network']:
+    for route in data.get('network', []):
         source = route['source']
         target = route['target']
         probability = route['probability']
