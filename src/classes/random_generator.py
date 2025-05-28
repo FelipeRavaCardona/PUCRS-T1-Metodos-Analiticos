@@ -10,3 +10,6 @@ class RandomGenerator:
         while True:
             x = (self.a * x + self.c) % self.m
             yield x / self.m
+    
+    def next_random(self):
+        next(self.generate())
