@@ -141,6 +141,7 @@ def generate_report(queue):
     
 
 if __name__ == "__main__":
+    # Definição do arquivo modelo a ser utilizado
     config = load_config('model-rede-filas.yml')
     if 'seeds' in config:
         random_numbers_per_seed = config['random_numbers_per_seed']

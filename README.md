@@ -8,7 +8,7 @@ O programa consegue executar apenas sistemas que tenham ao menos 1 network, ou s
 
 ## Execução do Programa
 
-Para executar o programa nomeie o arquivo yml para `model.yml` e execute o comando abaixo:
+Para executar o programa nomeie o arquivo yml para `model.yml` no arquivo [main](src/main.py#L145) na linha 145 e execute o comando abaixo:
 
 ```bash
 python src/main.py
