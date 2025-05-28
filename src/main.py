@@ -152,6 +152,6 @@ if __name__ == "__main__":
             if queue_name == route.source:
                 queue_data.routes.append(route)
         queue_data.routes = sorted(queue_data.routes, key=lambda obj: obj.probability) 
-
+    print(f"Simulating with random numbers generated with seed {config['seeds'][0]}")
     simulate(config)
     
