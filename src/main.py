@@ -3,6 +3,7 @@ from yml_loader import load_config, Config
 from classes.random_generator import RandomGenerator
 from classes.event import Event, EventType
 from classes.simulated_queue import Queue
+from classes.route import Route
 from tabulate import tabulate
 
 random_numbers_per_seed = 0
@@ -140,7 +141,7 @@ def generate_report(queue):
     
 
 if __name__ == "__main__":
-    config = load_config('model.yml')
+    config = load_config('model2.yml')
     if 'seeds' in config:
         random_numbers_per_seed = config['random_numbers_per_seed']
         generator = RandomGenerator(config['seeds'][0])
@@ -152,7 +153,17 @@ if __name__ == "__main__":
         for route in config['network']:
             if queue_name == route.source:
                 queue_data.routes.append(route)
-        queue_data.routes = sorted(queue_data.routes, key=lambda obj: obj.probability) 
+        queue_data.routes = sorted(queue_data.routes, key=lambda obj: obj.probability)
+
+    for queue_name, queue_data in config['queues'].items():
+        summed_probability = 0.0
+        for route in queue_data.routes:
+            summed_probability += route.probability
+        if summed_probability != 1.0:
+            queue_data.routes.append(Route(source=queue_name, target='OUT', probability=round(1.0 - summed_probability, 1)))
+
+    print(config['queues'])
+
     print(f"Simulating with random numbers generated with seed {config['seeds'][0]}")
     simulate(config)
     print(f"Simulation average time: {global_time}")
